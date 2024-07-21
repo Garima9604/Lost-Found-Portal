@@ -39,32 +39,37 @@ function PostItem() {
   return (
     <div>
       <h1 className='text-center text-5xl font-bold pt-8'>Add Item</h1>
-      <form onSubmit={addItem} action="" className='p-10 bg-red-300 w-96 shadow-cyan-500/50 rounded-2xl m-auto mt-16 border-solid border-8 border-red-950 '>
-        <div className='mt-1'>
-          <label className='block m-1' htmlFor="item-name">Item name</label>
-          <input type="text" id='item-name' placeholder="Item name" ref={itemNameRef} />
+
+      <form className="max-w-md mx-auto bg-formBlue rounded-2xl p-10 m-10" onSubmit={addItem}>
+
+        <div className="relative z-0 w-full mb-5 group">
+          <input type="text" name="item-name" id='item-name' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " ref={itemNameRef} />
+          <label htmlFor="item-name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-white peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Item Name</label>
         </div>
 
-        <div className='mt-1'>
-          <label className='block m-1' htmlFor="image">Image</label>
-          <input type="text" id='image' placeholder="Item name" ref={itemImageRef} />
+
+        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="image">Upload Item Image</label>
+        <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-white dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="image" id="image" type="file" ref={itemImageRef} />
+
+        <div className='flex flex-row p-5 gap-4'>
+          <div className="flex items-center">
+            <input id="found" type="radio" value="found" ref={itemTypeRef} name="itemType" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="found" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Found</label>
+          </div>
+          <div className="flex items-center">
+            <input id="lost" type="radio" value="lost" ref={itemTypeRef} name="itemType" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="lost" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Lost</label>
+          </div>
         </div>
 
-        <div className='mt-1'>
-          <label className='block m-1' htmlFor="lost">Lost</label>
-          <input type="radio" id='lost' name='itemType' value="lost" ref={itemTypeRef} />
+        <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item Description</label>
+        <textarea id="description" rows="4" ref={itemDescRef} className="block p-2.5 w-full text-sm text-black bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description"></textarea>
 
-          <label className='block m-1' htmlFor="found">Found</label>
-          <input type="radio" id='found' name='itemType' value="found" ref={itemTypeRef} />
-        </div>
 
-        <div className='mt-4'>
-          <label className='block m-1' htmlFor="description">Description</label>
-          <textarea className='border-box focus:outline-none container' name="" id="description" cols="15" rows="4" placeholder="Description" ref={itemDescRef}></textarea>
-        </div>
+        <button type="submit" className="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
 
-        <button className='border-solid border-4 text-xl border-sky-500 font-bold py-2 px-4 hover:bg-blue-400 hover:border-black bg-slate-800 mt-3 text-white hover:text-black'> Add Item</button>
       </form>
+
     </div>
   )
 }
